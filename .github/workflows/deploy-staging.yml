@@ -26,7 +26,7 @@ jobs:
     if: ${{ vars.STAGING_DEPLOY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Upload theme to staging
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
