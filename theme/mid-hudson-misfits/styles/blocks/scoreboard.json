@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Scoreboard",
+	"slug": "scoreboard",
+	"blockTypes": [ "core/group" ],
+	"styles": {
+		"color": {
+			"background": "var:preset|color|ink-soft",
+			"text": "var:preset|color|paper"
+		},
+		"border": {
+			"color": "var:preset|color|brand",
+			"style": "solid",
+			"width": "4px",
+			"radius": "6px"
+		},
+		"shadow": "var:preset|shadow|slap-glow",
+		"spacing": {
+			"padding": {
+				"top": "32px",
+				"bottom": "32px",
+				"left": "32px",
+				"right": "32px"
+			}
+		}
+	}
+}

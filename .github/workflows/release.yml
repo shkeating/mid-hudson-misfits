@@ -1,0 +1,28 @@
+name: Release theme
+
+# Push a tag like v0.2.0 to publish a GitHub Release with an installable zip.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zip
+        run: |
+          mkdir -p dist
+          cd theme
+          zip -qr "../dist/mid-hudson-misfits-${GITHUB_REF_NAME}.zip" mid-hudson-misfits -x '*/.DS_Store'
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "dist/mid-hudson-misfits-${GITHUB_REF_NAME}.zip" \
+            --title "$GITHUB_REF_NAME" --generate-notes

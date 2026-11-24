@@ -1,0 +1,43 @@
+name: Deploy to staging
+
+# Copies the theme folder to the staging site over FTPS on every push to main.
+# Off until you set the repository variable STAGING_DEPLOY_ENABLED to "true"
+# (Settings > Secrets and variables > Actions > Variables) and add the
+# secrets and variable below. NOT YET TESTED against HostGator.
+#
+#   Secrets:   STAGING_FTP_HOST, STAGING_FTP_USER, STAGING_FTP_PASSWORD
+#   Variable:  STAGING_THEME_DIR  (path to the theme folder on the server,
+#              relative to the FTP user's home, ending in a slash)
+on:
+  push:
+    branches: [main]
+    paths: ['theme/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ vars.STAGING_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload theme to staging
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.STAGING_FTP_HOST }}
+          username: ${{ secrets.STAGING_FTP_USER }}
+          password: ${{ secrets.STAGING_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: theme/mid-hudson-misfits/
+          server-dir: ${{ vars.STAGING_THEME_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/README.md

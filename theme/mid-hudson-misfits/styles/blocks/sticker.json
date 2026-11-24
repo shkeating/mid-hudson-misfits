@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Sticker",
+	"slug": "sticker",
+	"blockTypes": [ "core/paragraph" ],
+	"styles": {
+		"color": {
+			"background": "var:preset|color|brand",
+			"text": "var:preset|color|paper"
+		},
+		"border": {
+			"color": "var:preset|color|paper",
+			"style": "solid",
+			"width": "3px",
+			"radius": "6px"
+		},
+		"shadow": "var:preset|shadow|slap",
+		"spacing": {
+			"padding": {
+				"top": "10px",
+				"bottom": "10px",
+				"left": "18px",
+				"right": "18px"
+			}
+		},
+		"typography": {
+			"fontSize": "var:preset|font-size|label",
+			"fontWeight": "700",
+			"letterSpacing": "0.02em",
+			"lineHeight": "1"
+		}
+	}
+}

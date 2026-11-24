@@ -1,0 +1,208 @@
+/*
+ * Mid-Hudson Misfits layout.
+ *
+ * Desktop: the home page sections are compositions placed from Jazmin's 1440px
+ * Figma comps. Each section is a "stage" that scales with its own width
+ * (container query units), so the collage holds its shape from 782px up.
+ * Mobile: the same pieces reflow into a single column and keep the tilts,
+ * stickers and slanted edges, with smaller angles.
+ *
+ * Colours, fonts and spacing come from theme.json presets. Only geometry lives here.
+ */
+
+/* ---------- Header ---------- */
+.mhm-header{background:var(--wp--preset--color--brand);border-bottom:1px solid var(--wp--preset--color--paper);padding:0 clamp(18px,3.34vw,48px)}
+.mhm-header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:116px}
+.mhm-header .mhm-logo{display:block;line-height:0}
+.mhm-header .mhm-logo__svg{display:block;width:auto;height:74px}
+.mhm-header__tools{display:flex;align-items:center;gap:40px}
+.mhm-header .wp-block-navigation{gap:30px}
+.mhm-header .wp-block-navigation-item__content{font-weight:500}
+.mhm-header .wp-block-navigation .wp-block-navigation__submenu-container{background:var(--wp--preset--color--brand);border:3px solid var(--wp--preset--color--paper);border-radius:6px;padding:8px 0}
+.mhm-header .wp-block-navigation__responsive-container-open,
+.mhm-header .wp-block-navigation__responsive-container-close{color:var(--wp--preset--color--ink)}
+.mhm-header .wp-block-navigation__responsive-container.is-menu-open{background:var(--wp--preset--color--brand);color:var(--wp--preset--color--paper)}
+.mhm-cta .wp-block-loginout a,
+a.mhm-cta{display:inline-block;background:var(--wp--preset--color--brand);color:var(--wp--preset--color--paper);border:3px solid var(--wp--preset--color--paper);border-radius:6px;box-shadow:6px 6px 0 0 var(--wp--preset--color--brand-deep);padding:18px 28px;font-size:var(--wp--preset--font-size--button);font-weight:700;letter-spacing:.01em;line-height:1;text-decoration:none}
+.mhm-cta .wp-block-loginout a:hover{background:var(--wp--preset--color--brand-deep)}
+.mhm-header .wp-block-search__button{background:var(--wp--preset--color--brand-bright);border:3px solid var(--wp--preset--color--paper);border-radius:4px;box-shadow:6px 6px 0 0 var(--wp--preset--color--brand-deep);width:62px;height:62px;padding:0;display:flex;align-items:center;justify-content:center;color:var(--wp--preset--color--paper)}
+.mhm-header .wp-block-search__button svg{width:40px;height:40px;fill:currentColor}
+.mhm-header .wp-block-search{margin:0}
+
+/* ---------- Footer ---------- */
+.mhm-footer{background:var(--wp--preset--color--ink) url(../images/footer-carpet.webp) 0 0/760px 413px repeat;color:var(--wp--preset--color--paper);position:relative}
+.mhm-footer__main{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:start;padding:clamp(32px,5vw,66px) clamp(20px,5.9vw,85px) clamp(32px,4vw,56px)}
+.mhm-footer .mhm-logo{display:block;line-height:0;margin-bottom:24px}
+.mhm-footer .mhm-logo__svg{height:74px;width:auto}
+.mhm-footer p{font-size:var(--wp--preset--font-size--body-lg);line-height:1.5;margin:0}
+.mhm-footer__links{display:flex;flex-direction:column;gap:8px;font-size:1rem}
+.mhm-footer__links a,.mhm-footer a{color:var(--wp--preset--color--paper);text-decoration:none}
+.mhm-footer__links a:hover,.mhm-footer a:hover{text-decoration:underline}
+.mhm-footer__credit{grid-column:1/-1;color:var(--wp--preset--color--grey);font-size:1rem}
+.mhm-footer__newsletter{background:var(--wp--preset--color--paper);color:var(--wp--preset--color--ink);border-radius:18px;padding:25px 17px 22px;max-width:253px}
+.mhm-footer__newsletter p{font-weight:700;font-size:var(--wp--preset--font-size--body-lg);line-height:1.2;margin:0 0 20px;color:var(--wp--preset--color--ink)}
+.mhm-subfooter{background:var(--wp--preset--color--brand);padding:16px clamp(18px,5.3vw,77px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.mhm-subfooter__links{display:flex;flex-wrap:wrap;gap:8px 32px;font-size:1rem}
+.mhm-subfooter .wp-block-social-links{gap:8px}
+.mhm-subfooter .wp-social-link{background:var(--wp--preset--color--paper)!important;border-radius:200px}
+.mhm-subfooter .wp-social-link svg{fill:var(--wp--preset--color--ink)}
+
+/* ---------- Shared form bits ---------- */
+.mhm-signup{display:grid;gap:12px}
+.mhm-signup label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mhm-signup input[type=email]{background:var(--wp--preset--color--paper);color:var(--wp--preset--color--ink);border:1px solid var(--wp--preset--color--brand-soft);border-radius:8px;padding:12px 14px;font-size:1rem;width:100%}
+.mhm-signup input[type=email]::placeholder{color:#6b6b72}
+.mhm-signup button{background:var(--wp--preset--color--brand);color:var(--wp--preset--color--paper);border:0;border-radius:8px;padding:12px 14px;font-family:inherit;font-size:1.125rem;font-weight:400;cursor:pointer;width:100%}
+.mhm-signup button:hover{background:var(--wp--preset--color--brand-deep)}
+
+/* ---------- Stages (shared) ---------- */
+.mhm-band{overflow:clip}
+.mhm-stage{position:relative;container-type:inline-size;max-width:1920px;margin-inline:auto;overflow:clip}
+.mhm-stage figure{margin:0}
+.mhm-stage img{display:block;width:100%;height:auto}
+.mhm-line{height:15px;background:var(--wp--preset--color--paper);margin:0}
+.mhm-panels{display:contents}
+
+/* Scoreboard card: sizes follow the card's own width, so it scales anywhere. */
+.mhm-score{container-type:inline-size;background:var(--wp--preset--color--rug-ground);border:4px solid var(--wp--preset--color--accent);box-shadow:10px 10px 0 0 var(--wp--preset--color--paper);padding:6.15% 6.15% 6%;aspect-ratio:520/430;display:flex;flex-direction:column;align-items:center;gap:1.15cqw;text-align:center;margin:0}
+.mhm-score>*{margin:0}
+.mhm-score__day{color:var(--wp--preset--color--grey);font-weight:700;font-size:3.08cqw;line-height:1;letter-spacing:.01em}
+.mhm-score__num{font-family:var(--wp--preset--font-family--houndcats);color:var(--wp--preset--color--brand-glow);font-size:40.4cqw;line-height:.9;letter-spacing:-.02em}
+.mhm-score__month{font-weight:900;font-size:12.3cqw;line-height:.9;letter-spacing:-.02em}
+.mhm-score__stars{width:35.8cqw}
+.mhm-score__stars img{width:100%}
+.mhm-score__meta{font-weight:700;font-size:2.9cqw;line-height:1;letter-spacing:.01em}
+
+/* Stickers */
+.mhm-sticker{background:var(--wp--preset--color--brand-glow);color:var(--wp--preset--color--paper);box-shadow:10px 10px 0 0 var(--wp--preset--color--paper);margin:0;font-family:var(--wp--preset--font-family--houndcats);font-weight:400;line-height:.92}
+.mhm-sticker p,p.mhm-sticker,h2.mhm-sticker{margin:0}
+
+/* Buttons inside compositions */
+.mhm-tilt-r .wp-block-button__link{transform:rotate(3deg)}
+.mhm-tilt-l .wp-block-button__link{transform:rotate(-3deg)}
+.mhm-btn-plum .wp-block-button__link{background:var(--wp--preset--color--plum);box-shadow:6px 6px 0 0 var(--wp--preset--color--ink)}
+.mhm-btn-ink .wp-block-button__link{background:var(--wp--preset--color--ink);box-shadow:6px 6px 0 0 var(--wp--preset--color--ink)}
+
+/* Section B pink area */
+.mhm-b-pink{background:var(--wp--preset--color--brand);clip-path:polygon(0 0,100% 18.84%,100% 100%,0 100%);margin:0}
+.mhm-b-copy h1{margin:0;font-size:8.333cqw;line-height:1;text-transform:none}
+.mhm-b-copy h1 .mhm-ink{color:var(--wp--preset--color--plum)}
+.mhm-b-copy p{margin:0}
+
+/* Section C newsletter card */
+.mhm-c-news{container-type:inline-size;background:var(--wp--preset--color--paper);color:var(--wp--preset--color--ink);border-radius:18px;padding:6%;margin:0}
+.mhm-c-news h2{font-family:var(--wp--preset--font-family--dm-sans);font-weight:700;font-size:9.9cqw;line-height:1.2;color:var(--wp--preset--color--ink);margin:0 0 8cqw}
+.mhm-c-news .mhm-signup{gap:3cqw}
+.mhm-c-news .mhm-signup input[type=email]{padding:5cqw 4cqw;font-size:max(1rem,4cqw);border-radius:8px}
+.mhm-c-news .mhm-signup button{padding:4cqw;font-size:max(1.125rem,7.9cqw);border-radius:8px}
+
+/* ---------- Desktop: absolute composition ---------- */
+@media (min-width:782px){
+.mhm-stage--a{aspect-ratio:1440/981}
+.mhm-stage--b{aspect-ratio:1440/1267}
+.mhm-stage--c{aspect-ratio:1440/1163}
+.mhm-abs{position:absolute;margin:0}
+.mhm-a-sticker{padding:2.57cqw 2.78cqw;font-size:5cqw;white-space:nowrap}
+.mhm-a-sticker{height:9.653cqw;box-sizing:border-box}
+.mhm-line.mhm-abs{height:1.04cqw;transform-origin:center}
+.mhm-a-star1 img,.mhm-a-star2 img{width:100%}
+.mhm-b-pink{height:69.34%}
+.mhm-b-copy .mhm-b-sub{font-size:max(1rem,1.53cqw);line-height:1.5;color:var(--wp--preset--color--paper);margin-top:1.8cqw}
+.mhm-b-copy .wp-block-buttons{margin-top:1.8cqw;gap:1.4cqw}
+.mhm-b-copy .wp-block-button__link{font-size:max(.875rem,1.39cqw);padding:1.25cqw 1.94cqw}
+.mhm-c-sticker{padding:2.6cqw 2.78cqw;font-size:5cqw;white-space:nowrap;box-sizing:border-box;height:9.653cqw}
+.mhm-only-mobile{display:none!important}
+}
+
+/* ---- generated placement for the 1440px comps (desktop). Do not hand-edit numbers; see README. ---- */
+@media (min-width:782px){
+.mhm-a-panel1{left:0.069%;top:0.102%;width:46.528%;}
+.mhm-a-panel2{left:38.750%;top:0.000%;width:61.285%;}
+.mhm-a-skater{left:27.437%;top:33.471%;width:26.521%;transform:rotate(2.04deg);}
+.mhm-a-fast{left:10.903%;top:45.678%;width:20.847%;}
+.mhm-a-star1{left:31.056%;top:31.305%;width:9.944%;transform:rotate(15deg);}
+.mhm-a-star2{left:45.986%;top:69.521%;width:8.514%;transform:rotate(-14.4deg);}
+.mhm-a-score{left:54.854%;top:41.111%;width:36.111%;transform:rotate(3deg);}
+.mhm-a-sticker{left:36.806%;top:81.855%;width:32.986%;}
+.mhm-a-l1{left:-1.861%;top:18.451%;width:102.750%;transform:rotate(169.33deg)}
+.mhm-a-l3{left:34.545%;top:9.735%;width:15.701%;transform:rotate(57.65deg)}
+.mhm-b-panel3{left:-0.069%;top:0.000%;width:47.604%;}
+.mhm-b-panel4{left:35.729%;top:7.537%;width:39.688%;}
+.mhm-b-panel5{left:64.514%;top:11.602%;width:35.486%;}
+.mhm-b-pink{left:0.000%;top:30.387%;width:100.069%;}
+.mhm-b-patch{left:10.903%;top:43.883%;width:39.097%;}
+.mhm-b-copy{left:52.639%;top:48.934%;width:33.333%;}
+.mhm-b-l2{left:-0.392%;top:8.129%;width:100.924%;transform:rotate(7.75deg)}
+.mhm-b-l5{left:28.212%;top:20.876%;width:26.771%;transform:rotate(116.5deg)}
+.mhm-b-l7{left:56.674%;top:25.020%;width:26.097%;transform:rotate(115.2deg)}
+.mhm-b-l6{left:-0.267%;top:37.017%;width:101.646%;transform:rotate(6.59deg)}
+.mhm-c-sticker{left:8.889%;top:8.942%;width:32.986%;transform:rotate(-3deg);}
+.mhm-c-image{left:18.611%;top:18.659%;width:68.056%;}
+.mhm-c-news{left:55.278%;top:50.989%;width:35.139%;transform:rotate(3deg);}
+}
+
+/* ---------- Mobile: single column, same motifs, smaller angles ---------- */
+@media (max-width:781px){
+.mhm-only-desktop{display:none!important}
+.mhm-header__inner{min-height:59px;gap:12px}
+.mhm-header .mhm-logo__svg{height:29px}
+.mhm-header__tools{gap:12px}
+.mhm-header .wp-block-search__button{width:40px;height:40px;border:0;box-shadow:none;background:transparent;color:var(--wp--preset--color--ink)}
+.mhm-header .wp-block-search__button svg{width:28px;height:28px}
+.mhm-footer__main{grid-template-columns:1fr}
+.mhm-footer__newsletter{max-width:none}
+.mhm-line{display:none}
+
+/* A: bout hero */
+.mhm-stage--a{padding:0 0 40px}
+.mhm-panels--a{display:block;position:relative;aspect-ratio:390/150}
+.mhm-panels--a .mhm-a-panel1{position:absolute;left:0;top:0;width:62%}
+.mhm-panels--a .mhm-a-panel2{position:absolute;right:0;top:8%;width:62%}
+.mhm-a-row{display:grid;grid-template-columns:42% 1fr;align-items:center;gap:4vw;padding:6vw 5vw 0}
+.mhm-a-skater-wrap{position:relative}
+.mhm-a-skater-wrap .mhm-a-skater{width:100%;transform:rotate(2deg)}
+.mhm-a-star1,.mhm-a-star2{position:absolute;width:20%}
+.mhm-a-star1{left:-6%;top:6%;transform:rotate(15deg)}
+.mhm-a-star2{right:-10%;bottom:6%;transform:rotate(-14deg)}
+.mhm-a-fast{display:none}
+.mhm-a-score{transform:rotate(3deg);margin-right:2.5vw}
+.mhm-score{border-width:3px;box-shadow:6px 6px 0 0 var(--wp--preset--color--paper)}
+.mhm-a-sticker{display:inline-block;margin:10vw 0 0 5vw;padding:5.5vw 7vw;font-size:clamp(2rem,10.3vw,2.75rem);box-shadow:6px 6px 0 0 var(--wp--preset--color--paper)}
+
+/* B: photo strip then pink join section */
+.mhm-panels--b{display:block;position:relative;aspect-ratio:390/150;margin-bottom:6vw}
+.mhm-panels--b .mhm-b-panel3{position:absolute;left:0;top:0;width:48%}
+.mhm-panels--b .mhm-b-panel4{position:absolute;left:36%;top:18%;width:40%}
+.mhm-panels--b .mhm-b-panel5{position:absolute;right:0;top:28%;width:36%}
+.mhm-b-pink{position:static;clip-path:polygon(0 8vw,100% 0,100% 100%,0 100%);height:auto;padding:16vw 6vw 12vw;display:grid;gap:8vw;justify-items:center}
+.mhm-b-patch{width:68%;max-width:360px;justify-self:center}
+.mhm-b-copy{width:100%}
+.mhm-b-copy h1{font-size:clamp(3rem,16vw,4.5rem)}
+.mhm-b-copy .mhm-b-sub{font-size:1.125rem;line-height:1.5;color:var(--wp--preset--color--paper);margin-top:16px}
+.mhm-b-copy .wp-block-buttons{margin-top:20px;flex-direction:column;align-items:flex-start;gap:14px}
+.mhm-b-copy .wp-block-button__link{font-size:.9375rem;padding:12px 18px}
+
+/* C: last game and newsletter */
+.mhm-stage--c{padding:10vw 5vw 12vw;display:grid;gap:7vw}
+.mhm-c-sticker{display:inline-block;justify-self:start;padding:5vw 6vw;font-size:clamp(2rem,10.3vw,2.75rem);transform:rotate(-3deg);box-shadow:6px 6px 0 0 var(--wp--preset--color--paper)}
+.mhm-c-news{max-width:520px;width:100%;justify-self:center;transform:rotate(1.5deg);padding:7%}
+.mhm-c-news h2{font-size:clamp(1.75rem,9vw,2.5rem)}
+}
+
+/* ---------- Desktop fixes: flatten wrappers so children place against the stage ---------- */
+@media (min-width:782px){
+.mhm-a-row,.mhm-a-skater-wrap{display:contents}
+.mhm-b-pink{display:contents}
+.mhm-b-pink::before{content:"";position:absolute;left:0;right:0;top:30.39%;bottom:0;background:var(--wp--preset--color--brand);clip-path:polygon(0 0,100% 18.84%,100% 100%,0 100%);z-index:0}
+.mhm-line.mhm-abs{z-index:1}
+.mhm-b-panel3,.mhm-b-panel4,.mhm-b-panel5{z-index:2}
+.mhm-b-patch,.mhm-b-copy{z-index:3}
+}
+
+/* Fixes after staging review */
+.wp-block-loginout.mhm-cta a{display:inline-block;background:var(--wp--preset--color--brand);color:var(--wp--preset--color--paper);border:3px solid var(--wp--preset--color--paper);border-radius:6px;box-shadow:6px 6px 0 0 var(--wp--preset--color--brand-deep);padding:18px 28px;font-size:var(--wp--preset--font-size--button);font-weight:700;line-height:1;text-decoration:none}
+.wp-block-loginout.mhm-cta a:hover{background:var(--wp--preset--color--brand-deep)}
+@media (max-width:781px){
+.mhm-stage .mhm-a-sticker{margin:10vw 0 0 5vw}
+.wp-block-loginout.mhm-cta a{padding:9px 12px;font-size:.875rem;box-shadow:4px 4px 0 0 var(--wp--preset--color--brand-deep)}
+}

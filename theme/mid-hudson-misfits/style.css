@@ -1,0 +1,19 @@
+/*
+Theme Name: Mid-Hudson Misfits
+Theme URI: https://github.com/shkeating/mid-hudson-misfits
+Author: Mid-Hudson Misfits web team
+Description: Block theme for the Mid-Hudson Misfits roller derby league. Design tokens (colors, type, shadows) come from the Foundations frame in the Mid-Hudson Misfits Figma file. Display type is Houndcats PB (font file supplied separately), body type is DM Sans.
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mid-hudson-misfits
+*/
+
+/*
+ * Design styles live in theme.json, styles/blocks/, and patterns/.
+ * Keep this file for the theme header only, unless something cannot be
+ * expressed in theme.json.
+ */
